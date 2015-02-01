@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/index.css" />
+      <link rel="stylesheet" type="text/css" href="css/style.css" />
+      <script type="text/javascript" src="cordova-2.7.0.js"></script>
+      <script type="text/javascript" src="js/libs/handlebars.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+      <script type="text/javascript"> </script>
+
+<script>
+
+$( document ).on( "pageinit", "[data-role=page]",function() {
+    $( document ).on( "swipeleft swiperight", '[data-role=page]', function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swipeleft"  ) {
+                //$.mobile.activePage.find('#panel-right').panel("open");
+                $( "#panel-right" ).panel( "open" );
+            } else if ( e.type === "swiperight" ) {
+                //$.mobile.activePage.find('#panel-left').panel("open");
+                $( "#panel-left" ).panel( "open" );
+            }
+        }
+    });
+});
+</script>
+        <title>Blog</title>
+    </head>
+    <body>
+
+      <div class="hwrapper" data-role="page" id="blog-page">
+          <!-- panel 01 -->
+          <div class="panel left" data-role="panel" data-position="left" data-display="push" id="panel-left">
+            <ul>
+              <li class="home"><a href="javascript:window.location.href='index.html'" title="Home" data-rel="close">Home</a></li>
+              <li class="blog"><a href="blog.html" title="Blog" data-rel="close" >Blog</a></li>
+              <li class="mywork"><a href="portfolio.html" title="My Work" data-rel="close">My Work</a></li>
+              <li class="contact"><a href="contact.html" title="Contact" data-rel="close">Contact</a></li>
+              <li class="report"><a href="#" title="Report" data-rel="close">Report Bug</a></li>
+            </ul>
+          </div>
+          <div class="header" data-role="header">
+            <span class="open left"><a href="#panel-left">&#61641;</a></span>
+            <span class="title">Hello World</span>
+          <span class="open right"><a href="#panel-02">&#9776;</a></span>
+          </div>
+          <div class="panel right" data-role="panel" data-position="right" data-display="overlay" id="panel-right">
+
+            <ul>
+              <li class="how-tos"><a href="javascript:window.location.href='category.html?cat=how-tos'" title="How Tos" data-rel="close">How Tos</a></li>
+              <li class="freebies"><a href="javascript:window.location.href='category.html?cat=freebies'" title="Freebies" data-rel="close" >Freebies</a></li>
+              <li class="useful-tools"><a href="javascript:window.location.href='category.html?cat=useful-tools'" title="Useful Tools" data-rel="close">Useful Tools</a></li>
+              <li class="blogging"><a href="javascript:window.location.href='category.html?cat=blogging'" title="Blogging" data-rel="close">Blogging</a></li>
+              <li class="miscellaneous"><a href="javascript:window.location.href='category.html?cat=miscellaneous'" title="Miscellaneous" data-rel="close">Miscellaneous</a></li>
+            </ul>
+          </div>
+          <!-- <div class="home-content" data-role="content">
+            <h3>This is the content</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+          </div>
+        
+</div>
+    </body>
+</html>
