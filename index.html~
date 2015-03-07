@@ -108,7 +108,7 @@ $( document ).on( "pageinit", "[data-role=page]",function() {
  <script>
       var slideout = new Slideout({
         'panel': document.getElementById('panel-left'),
-        'menu': document.getElementById('menu'),
+        'menu': document.getElementById('home-page'),
         'padding': 256,
         'tolerance': 70
       });
